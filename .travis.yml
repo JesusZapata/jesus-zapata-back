@@ -1,0 +1,21 @@
+language: php
+
+services:
+  - mysql
+
+php:
+  - '7.1'
+  
+directories:
+  - $HOME/.composer/cache/files
+
+before_script:
+  - composer self-update
+  - composer install --no-interaction
+  - cp .env.travis .env
+  - pear install pear/PHP_CodeSniffer
+  - phpenv rehash
+  
+script:
+  - vendor/bin/phpunit --coverage-text
+  - phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
