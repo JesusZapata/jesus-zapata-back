@@ -41,8 +41,8 @@ class CubeSummationController extends Controller
     /**
      * Method to upload the file cube_summation
      * 
-     * @param CubeSummation $cube The CubeSummation to provide the method process
-     * 
+     * @param CubeSummation        $cube    The CubeSummation to provide
+     *                                      the method process
      * @param CubeSummationRequest $request Request related with CubeSummation
      * 
      * @author Jesus Zapata <chuchocorleone@gmail.com>
