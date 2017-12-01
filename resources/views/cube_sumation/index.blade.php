@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Cube Summation</title>
+        <title>Cube Summation Upload</title>
 
         <!-- Css -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -17,10 +17,9 @@
                 <div class="col-sm-6">
                     <div class="card" style="margin-top: 50px;">
                         <div class="card-header">
-                            Cube Summation
+                            Cube Summation - Upload
                         </div>
                         <div class="card-body">
-                            <h3 class="card-title"></h3>
                             <form action="upload" method="post" enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 @if (count($errors) > 0)
@@ -47,7 +46,7 @@
                                         </small>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Upload</button>
                             </form>
                         </div>
                     </div>

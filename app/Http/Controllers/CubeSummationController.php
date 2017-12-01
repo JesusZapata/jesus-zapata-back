@@ -48,10 +48,26 @@ class CubeSummationController extends Controller
     public function upload(CubeSummationRequest $request)
     {
         $path = $request->file('cube_summation')->store('cube_summation');
-        $data = $all_data = explode("\n", Storage::get($path));
+        $data = explode("\n", Storage::get($path));
+        
+        return view(
+            'cube_sumation.upload',
+            ['data' => $data, 'results' => $this->_process($data)]
+        );
+    }
+
+    /**
+     * Privated method to calculated the cube summation
+     * 
+     * @param array $data Data to process
+     * 
+     * @author Jesus Zapata <chuchocorleone@gmail.com>
+     * @return array $results
+     */
+    private function _process(array $data)
+    {
         $results = [];
         
-        //  TODO Validated the data
         $cases = $data[0];
         $data = array_splice($data, 1);
         $index = 0;
@@ -99,5 +115,7 @@ class CubeSummationController extends Controller
             }
             $index = 1 + $querys;
         }
+
+        return $results;
     }
 }
