@@ -49,6 +49,7 @@ class CubeSummationController extends Controller
     {
         $path = $request->file('cube_summation')->store('cube_summation');
         $data = $all_data = explode("\n", Storage::get($path));
+        $results = [];
         
         //  TODO Validated the data
         $cases = $data[0];
@@ -70,30 +71,30 @@ class CubeSummationController extends Controller
             for ($j = 1; $j <= $querys; $j++) {
                 $operation = explode(' ', $data[$index + $j]);
                 switch ($operation[0]) {
-                    case 'UPDATE':
-                        //  UPDATE x y z W
-                        $operation = array_splice($operation, 1);
-                        list($x, $y, $z, $W) = $operation;
-                        $array[$x][$y][$z] = $W;
-                        //echo "<p>$W</p>";
-                        break;
-                    
-                    case 'QUERY':
-                        // QUERY  x1 y1 z1 x2 y2 z2 
-                        $operation = array_splice($operation, 1);
-                        list($x1, $y1, $z1, $x2, $y2, $z2) = $operation;
+                case 'UPDATE':
+                    //  UPDATE x y z W
+                    $operation = array_splice($operation, 1);
+                    list($x, $y, $z, $W) = $operation;
+                    $array[$x][$y][$z] = $W;
+                    //echo "<p>$W</p>";
+                    break;
+                
+                case 'QUERY':
+                    // QUERY  x1 y1 z1 x2 y2 z2 
+                    $operation = array_splice($operation, 1);
+                    list($x1, $y1, $z1, $x2, $y2, $z2) = $operation;
 
-                        $sum = 0;
-                        for ($k = 1; $k <= $dimension; $k++) {
-                            for ($l = 1; $l <= $dimension; $l++) {
-                                for ($n = 1; $n <= $dimension; $n++) {
-                                    $sum+= $array[$k][$l][$n];
-                                }
+                    $sum = 0;
+                    for ($k = 1; $k <= $dimension; $k++) {
+                        for ($l = 1; $l <= $dimension; $l++) {
+                            for ($n = 1; $n <= $dimension; $n++) {
+                                $sum+= $array[$k][$l][$n];
                             }
                         }
+                    }
 
-                        echo "<p>$sum</p>";
-                        break;
+                    $results[] = $sum;
+                    break;
                 }
             }
             $index = 1 + $querys;
