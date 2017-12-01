@@ -1,21 +1,28 @@
+sudo: required
 language: php
-
-services:
-  - mysql
+dist: trusty
 
 php:
   - '7.1'
   
+install:
+  - cp .env.travis .env
+
 directories:
   - $HOME/.composer/cache/files
 
 before_script:
+  - travis_retry composer install --no-interaction
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - ./vendor/laravel/dusk/bin/chromedriver-linux &
   - composer self-update
   - composer install --no-interaction
-  - cp .env.travis .env
   - pear install pear/PHP_CodeSniffer
   - phpenv rehash
+  - php artisan serve > /dev/null 2>&1 &
   
 script:
+  - php artisan dusk
   - vendor/bin/phpunit --coverage-text
   - phpcs --ignore=app/Http/Controllers/Auth,app/Http/Controllers/Controller.php app/Http/Controllers
