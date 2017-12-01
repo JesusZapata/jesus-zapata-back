@@ -1,15 +1,50 @@
 <?php
+/**
+ * CubeSummationController.php
+ * 
+ * PHP Version 7.1
+ * 
+ * @category Controller
+ * 
+ * @package App
+ * 
+ * @author Jesus Zapata <chuchocorleone@gmail.com>
+ * 
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * 
+ * @link README.md
+ */
 
 namespace App\Http\Controllers;
 
 use Storage;
 use App\Http\Requests\CubeSummationRequest;
 
+/**
+ * Controller related with CubeSummation
+ * 
+ * PHP Version 7.1
+ * 
+ * @category Controller
+ * 
+ * @package App
+ * 
+ * @author Jesus Zapata <chuchocorleone@gmail.com>
+ * 
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * 
+ * @link README.md
+ */
 class CubeSummationController extends Controller
 {
     
     /**
+     * Method to upload the file cube_summation
      * 
+     * @param CubeSummationRequest $request Request related with CubeSummation
+     * 
+     * @author Jesus Zapata <chuchocorleone@gmail.com>
+     * @return \Illuminate\Http\Response
      */
     public function upload(CubeSummationRequest $request)
     {
