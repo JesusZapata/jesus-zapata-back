@@ -17,7 +17,7 @@
                 <div class="col-sm-6">
                     <div class="card" style="margin-top: 50px;">
                         <div class="card-header">
-                            Cube Summation - Upload
+                            Cube Summation Upload
                         </div>
                         <div class="card-body">
                             <form action="upload" method="post" enctype="multipart/form-data">

@@ -21,14 +21,14 @@
                         </div>
                         <div class="card-body">
                             <h4 class="card-title">Data</h4>
-                            <ul class="list-unstyled">
+                            <ul class="list-unstyled" id="data">
                                 @foreach ($data as $line)
                                     <li>{{ $line }}</li>
                                 @endforeach
                             </ul>
                             <hr/>
                             <h4 class="card-title">Result</h4>
-                            <ul class="list-unstyled">
+                            <ul class="list-unstyled" id="results">
                                 @foreach ($results as $line)
                                     <li>{{ $line }}</li>
                                 @endforeach
