@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('cube_sumation.index');
 });
+
+Route::post('/upload', 'CubeSummationController@upload');
