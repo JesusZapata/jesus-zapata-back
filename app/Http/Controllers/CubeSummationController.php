@@ -92,7 +92,6 @@ class CubeSummationController extends Controller
                     $operation = array_splice($operation, 1);
                     list($x, $y, $z, $W) = $operation;
                     $array[$x][$y][$z] = $W;
-                    //echo "<p>$W</p>";
                     break;
                 
                 case 'QUERY':
@@ -101,9 +100,9 @@ class CubeSummationController extends Controller
                     list($x1, $y1, $z1, $x2, $y2, $z2) = $operation;
 
                     $sum = 0;
-                    for ($k = 1; $k <= $dimension; $k++) {
-                        for ($l = 1; $l <= $dimension; $l++) {
-                            for ($n = 1; $n <= $dimension; $n++) {
+                    for ($k=$x2; $k>=$x1; $k--) {
+                        for ($l=$y2; $l>=$y1; $l--) {
+                            for ($n=$z2; $n>=$z1; $n--) {
                                 $sum+= $array[$k][$l][$n];
                             }
                         }
