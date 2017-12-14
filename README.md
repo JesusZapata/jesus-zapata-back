@@ -4,15 +4,31 @@
 
 This repository fix the challenges cube-summation that can be found in [www.hackerrank.com](https://www.hackerrank.com/challenges/cube-summation/problem)
 
-## Controller
+## Instalation
+
+Firts intall the Laravel requirements, you can see the requirements in [www.laravel.com](https://laravel.com/docs/5.5/installation)
+
+## Run
+
+To run the application run on the bash the follow command, you must be inside the project folder.
+
+```bash
+php artisan serve
+```
+
+After you can open the Web Browser using the follow url http://127.0.0.1:8000
+
+## Laravel Sections
+
+### Controller
 
 The controller `CubeSummationController` only have a method to upload the input file this method calculated the Cube Summation usgin the `CubeSummation` this class is provided for a `CubeSummationProvider`
 
-## Provider
+### Provider
 
 The `CubeSummationProvider` get the instanced class `CubeSummation` that class is the responsible to calculated the Cube Sumation usgin the method `process`, that method get the input format and return the results
 
-### Continuous integrations 
+### Continuous integrations
 
 To run the test in each modification it was used [travis-ci.org](https://www.travis-ci.org/)
 
