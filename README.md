@@ -8,6 +8,16 @@ This repository fix the challenges cube-summation that can be found in [www.hack
 
 Firts intall the Laravel requirements, you can see the requirements in [www.laravel.com](https://laravel.com/docs/5.5/installation)
 
+## Run
+
+To run the application run on the bash the follow command, you must be inside the project folder.
+
+```bash
+php artisan serve
+```
+
+After you can open the Web Browser using the follow url http://127.0.0.1:8000
+
 ## Controller
 
 The controller `CubeSummationController` only have a method to upload the input file this method calculated the Cube Summation usgin the `CubeSummation` this class is provided for a `CubeSummationProvider`
